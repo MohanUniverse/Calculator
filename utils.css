@@ -1,0 +1,29 @@
+.text-center{
+    text-align: center;
+    color: white;
+}
+
+.bg-red{
+    background-color:black;
+    border-radius: 10px;
+}
+.mx-auto{
+    margin: auto;
+}
+
+.m-width{
+    max-width: 25vw;
+    
+}
+.flex{
+   display: flex;
+}
+.flex-col{
+   flex-direction: column; 
+}
+.items-center{
+    align-items: center;
+}
+.m-top{
+    margin-top: 20px;
+}
