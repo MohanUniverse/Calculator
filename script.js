@@ -1,18 +1,32 @@
-let string="";
-let buttons=document.querySelectorAll('.button');
-Array.from(buttons).forEach((button)=>{
-    button.addEventListener('click',(e)=>{
-        if(e.target.innerText === '='){
-            string=eval(string);
-            document.querySelector('.input').value=string;
+let string = "";
+let buttons = document.querySelectorAll('.button');
+const display = document.querySelector('.input');
+
+Array.from(buttons).forEach((button) => {
+    button.addEventListener('click', (e) => {
+        const buttonText = e.target.innerText;
         
-        }else if(e.target.innerText === 'C'){
+        if(buttonText === '=') {
+            try {
+                string = eval(string);
+                display.value = string;
+            } catch (error) {
+                display.value = "Error";
+                string = "";
+            }
+        } else if(buttonText === 'C') {
             string = "";
-            document.querySelector('.input').value = string;
-        }else{
-        console.log(e.target);
-        string += e.target.innerText;
-        document.querySelector('.input').value=string;
-       }
+            display.value = string;
+        } else {
+            string += buttonText;
+            display.value = string;
+        }
+        
+        // Prevent display overflow
+        if(display.value.length > 12) {
+            display.style.fontSize = "18px";
+        } else {
+            display.style.fontSize = "24px";
+        }
     });
 });
